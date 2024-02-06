@@ -3,7 +3,7 @@ from .models import TodoList
 
 class TodoForm(forms.ModelForm):
     class Meta:
-        model = Todo
+        model = TodoList
         fields = ('name','priority','date')
     
     

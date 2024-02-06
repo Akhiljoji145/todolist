@@ -22,4 +22,9 @@ def delete(request,task_id):
 	return redirect('/')
 
 def update(request,task_id):
-	todo=TodoForm()
+	task=TodoList.objects.get(id=task_id)
+	form=TodoForm(request.POST or None, request.FILES ,instance=task)
+	if form.is_valid():
+		form.save()
+		return redirect('/')
+	return render(request,'update.html',{'task':task,'form':form})
