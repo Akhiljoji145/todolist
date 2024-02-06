@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import TodoList
+from .forms import TodoForm
 # Create your views here.
 def add_task(request):
 	if request.method=='POST':
@@ -19,3 +20,6 @@ def delete(request,task_id):
 	todo=TodoList.objects.get(id=task_id)
 	todo.delete()
 	return redirect('/')
+
+def update(request,task_id):
+	todo=TodoForm()
