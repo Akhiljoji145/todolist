@@ -6,7 +6,7 @@
     <h5 class="card-subtitle mb-2">{{task.priority}}</h5>
     <p class="card-text"><b>{{task.date}}</b></p>
     <a href="#" class="btn btn-warning">Update</a>
-    <a href="#" class="btn btn-danger">Delete</a>
+    <a href="{% url 'todo:delete' task.id %}" class="btn btn-danger">Delete</a>
    </div>
 </div>
 {% endfor %}

@@ -10,8 +10,12 @@ def add_task(request):
 		task=TodoList(name=name,priority=priority,date=date)
 		task.save()
 		show_task=TodoList.objects.all()
-		return render(request,'add.html',{'task':show_task})
+		return redirect('/')
 	else:	
 		task=TodoList.objects.all()
 		return render(request,'add.html',{'task':task})
 	
+def delete(request,task_id):
+	todo=TodoList.objects.get(id=task_id)
+	todo.delete()
+	return redirect('/')
