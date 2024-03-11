@@ -1,9 +1,14 @@
 from django.urls import path
 from . import views
-app_name='todo'
+
+
 urlpatterns = [
     path('',views.add_task,name='main'),
     path('add/',views.add_task,name='add'),
     path('delete/<int:task_id>/',views.delete,name='delete'),
     path('update/<int:task_id>/',views.update,name='update'),
+    path('cbvhome/',views.Tasklistview.as_view(),name='cbvhome'),
+    path('cbvdetail/<int:pk>/',views.TaskDetailview.as_view(),name='cbvdetail'),
+    path('cbvupdate/<int:pk>/',views.Taskupdateview.as_view(),name='cbvupdate'),
+    path('cbvdelete/<int:pk>/',views.TaskDeleteView.as_view(),name='cbvdelete'),
 ]

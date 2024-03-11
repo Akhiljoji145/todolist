@@ -1,5 +1,6 @@
-{% load static %}
-{% for task in task %}
+{% extends 'index.html' %}
+{% block content %}
+
 <div class="card" style="width:100%">
   <div class="card-body">
     <h4 class="card-title">{{task.name}}</h4>
@@ -9,4 +10,5 @@
     <a href="{% url 'delete' task.id %}" class="btn btn-danger">Delete</a>
    </div>
 </div>
-{% endfor %}
+
+{% endblock %}
